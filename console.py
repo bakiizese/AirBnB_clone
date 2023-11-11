@@ -106,7 +106,7 @@ class HBNBCommand(cmd.Cmd):
     def do_destroy(self, value):
         '''Destroy to delete an instance'''
         if value == "" or value is None:
-            print("** class name missinig **")
+            print("** class name missing **")
         else:
             cl = value.split(" ")
             if cl[0] not in HBNBCommand.class_dict:
