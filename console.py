@@ -136,7 +136,7 @@ class HBNBCommand(cmd.Cmd):
                     ls.append(str(v))
             print(ls)
         else:
-            print("**lass doesn't exist **")
+            print("** class doesn't exist **")
 
     def do_count(self, value):
         '''Count command to print number of instance'''
@@ -168,7 +168,7 @@ class HBNBCommand(cmd.Cmd):
     def do_update(self, value):
         '''Update command to update attribute of instance'''
         if value == "" or value is None:
-            print("** class name missing **")
+            print("** ass name missing **")
         else:
             cl = value.split(" ")
             if cl[0] not in HBNBCommand.class_dict:
