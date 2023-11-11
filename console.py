@@ -116,7 +116,7 @@ class HBNBCommand(cmd.Cmd):
             else:
                 key = "{}.{}".format(cl[0], cl[1])
                 if key not in storage.all():
-                    print("** no instance found **")
+                    print("** o instance found **")
                 else:
                     del storage.all()[key]
                     storage.save()
@@ -168,7 +168,7 @@ class HBNBCommand(cmd.Cmd):
     def do_update(self, value):
         '''Update command to update attribute of instance'''
         if value == "" or value is None:
-            print("** ass name missing **")
+            print("** class name missing **")
         else:
             cl = value.split(" ")
             if cl[0] not in HBNBCommand.class_dict:
