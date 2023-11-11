@@ -1,4 +1,4 @@
-#!usr/bin/python3
+#!/usr/bin/python3
 
 '''A python console to manipulate objects'''
 
@@ -62,11 +62,11 @@ class HBNBCommand(cmd.Cmd):
                     self.do_update(cl)
 
     def do_quit(self, line):
-        '''Quit command to exit the program'''
+        '''Quit command to exit the program.'''
         return True
 
     def do_EOF(self, line):
-        '''EOF command to end the program'''
+        '''EOF command to end the program.'''
         print()
         return True
 
