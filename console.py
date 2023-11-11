@@ -94,7 +94,7 @@ class HBNBCommand(cmd.Cmd):
             if cl[0] not in HBNBCommand.class_dict:
                 print("** class doesn't exist **")
             elif len(cl) < 2:
-                print("** instance id missiing **")
+                print("** instance id missing **")
             else:
                 key = "{}.{}".format(cl[0], cl[1])
                 if key not in storage.all():
@@ -116,7 +116,7 @@ class HBNBCommand(cmd.Cmd):
             else:
                 key = "{}.{}".format(cl[0], cl[1])
                 if key not in storage.all():
-                    print("** o instance found **")
+                    print("** no instance found **")
                 else:
                     del storage.all()[key]
                     storage.save()
