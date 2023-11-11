@@ -136,7 +136,7 @@ class HBNBCommand(cmd.Cmd):
                     ls.append(str(v))
             print(ls)
         else:
-            print("** class doesn't exist **")
+            print("**lass doesn't exist **")
 
     def do_count(self, value):
         '''Count command to print number of instance'''
