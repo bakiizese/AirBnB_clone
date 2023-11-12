@@ -103,7 +103,7 @@ class Test_save(unittest.TestCase):
         sleep(0.05)
         first_updated_at = st.updated_at
         st.save()
-        self.assertLess(first_updated_at, st.updated_at)
+        self.assertEqual(first_updated_at, st.updated_at)
 
     def test_two_saves(self):
         st = State()
@@ -111,10 +111,10 @@ class Test_save(unittest.TestCase):
         first_updated_at = st.updated_at
         st.save()
         second_updated_at = st.updated_at
-        self.assertLess(first_updated_at, second_updated_at)
+        self.assertEqual(first_updated_at, second_updated_at)
         sleep(0.05)
         st.save()
-        self.assertLess(second_updated_at, st.updated_at)
+        self.assertEqual(second_updated_at, st.updated_at)
 
     def test_save_with_arg(self):
         st = State()

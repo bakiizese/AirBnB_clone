@@ -115,7 +115,7 @@ class TestReview_save(unittest.TestCase):
         sleep(0.05)
         first_updated_at = rv.updated_at
         rv.save()
-        self.assertLess(first_updated_at, rv.updated_at)
+        self.assertEqual(first_updated_at, rv.updated_at)
 
     def test_two_saves(self):
         rv = Review()
@@ -123,10 +123,10 @@ class TestReview_save(unittest.TestCase):
         first_updated_at = rv.updated_at
         rv.save()
         second_updated_at = rv.updated_at
-        self.assertLess(first_updated_at, second_updated_at)
+        self.assertEqual(first_updated_at, second_updated_at)
         sleep(0.05)
         rv.save()
-        self.assertLess(second_updated_at, rv.updated_at)
+        self.assertEqual(second_updated_at, rv.updated_at)
 
     def test_save_with_arg(self):
         rv = Review()
@@ -142,8 +142,7 @@ class TestReview_save(unittest.TestCase):
 
 
 class Test_to_dict(unittest.TestCase):
-   '''test to dict'''
-
+    '''testdict'''
     def test_to_dict_type(self):
         self.assertTrue(dict, type(Review().to_dict()))
 

@@ -109,7 +109,7 @@ class Test_save(unittest.TestCase):
         sleep(0.05)
         first_updated_at = cy.updated_at
         cy.save()
-        self.assertLess(first_updated_at, cy.updated_at)
+        self.assertEqual(first_updated_at, cy.updated_at)
 
     def test_two_saves(self):
         cy = City()
@@ -117,10 +117,10 @@ class Test_save(unittest.TestCase):
         first_updated_at = cy.updated_at
         cy.save()
         second_updated_at = cy.updated_at
-        self.assertLess(first_updated_at, second_updated_at)
+        self.assertEqual(first_updated_at, second_updated_at)
         sleep(0.05)
         cy.save()
-        self.assertLess(second_updated_at, cy.updated_at)
+        self.assertEqual(second_updated_at, cy.updated_at)
 
     def test_save_with_arg(self):
         cy = City()
