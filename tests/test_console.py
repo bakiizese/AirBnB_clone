@@ -1,15 +1,5 @@
 #!/usr/bin/python3
-"""Defines unittests for console.py.
-Unittest classes:
-    TestHBNBCommand_prompting
-    TestHBNBCommand_help
-    TestHBNBCommand_exit
-    TestHBNBCommand_create
-    TestHBNBCommand_show
-    TestHBNBCommand_all
-    TestHBNBCommand_destroy
-    TestHBNBCommand_update
-"""
+'''tests cosnole'''
 import os
 import sys
 import unittest
@@ -17,12 +7,12 @@ import console
 import inspect
 from datetime import datetime
 from time import sleep
-HBNBCommand = console.HBNBCommand
 from models import storage
 from models.engine.file_storage import FileStorage
 from console import HBNBCommand
 from io import StringIO
 from unittest.mock import patch
+HBNBCommand = console.HBNBCommand
 
 
 class TestHBNBCommand_prompting(unittest.TestCase):
@@ -36,8 +26,9 @@ class TestHBNBCommand_prompting(unittest.TestCase):
             self.assertFalse(HBNBCommand().onecmd(""))
             self.assertEqual("", output.getvalue().strip())
 
-class TestHBNBCommand_help(unittest.TestCase):
-    """Unittests for testing help messages of the HBNB command interpreter."""
+
+class Test_help(unittest.TestCase):
+    '''tests_help'''
 
     def test_help_quit(self):
         h = "Quit command to exit the program"
@@ -45,8 +36,9 @@ class TestHBNBCommand_help(unittest.TestCase):
             self.assertFalse(HBNBCommand().onecmd("help quit"))
             self.assertNotEqual(h, output.getvalue().strip())
 
-class TestHBNBCommand_exit(unittest.TestCase):
-    """Unittests for testing exiting from the HBNB command interpreter."""
+
+class Test_exit(unittest.TestCase):
+    '''test_exit'''
 
     def test_quit_exits(self):
         with patch("sys.stdout", new=StringIO()) as output:
@@ -56,8 +48,9 @@ class TestHBNBCommand_exit(unittest.TestCase):
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertTrue(HBNBCommand().onecmd("EOF"))
 
-class TestHBNBCommand_create(unittest.TestCase):
-    """Unittests for testing create from the HBNB command interpreter."""
+
+class Test_create(unittest.TestCase):
+    '''test create'''
 
     @classmethod
     def setUp(self):
@@ -290,8 +283,9 @@ class TestHBNBCommand_create(unittest.TestCase):
             self.assertFalse(HBNBCommand().onecmd(command))
             self.assertEqual(obj.__str__(), output.getvalue().strip())
 
-class TestHBNBCommand_destroy(unittest.TestCase):
-    """Unittests for testing destroy from the HBNB command interpreter."""
+
+class Test_destroy(unittest.TestCase):
+    '''test_destory'''
 
     @classmethod
     def setUp(self):
@@ -322,8 +316,9 @@ class TestHBNBCommand_destroy(unittest.TestCase):
             self.assertFalse(HBNBCommand().onecmd("MyModel.destroy()"))
             self.assertEqual(correct, output.getvalue().strip())
 
-class TestHBNBCommand_all(unittest.TestCase):
-    """Unittests for testing all of the HBNB command interpreter."""
+
+class Test_all(unittest.TestCase):
+    '''test_all'''
 
     @classmethod
     def setUp(self):
@@ -448,8 +443,9 @@ class TestHBNBCommand_all(unittest.TestCase):
             self.assertIn("Review", output.getvalue().strip())
             self.assertNotIn("BaseModel", output.getvalue().strip())
 
-class TestHBNBCommand_update(unittest.TestCase):
-    """Unittests for testing update from the HBNB command interpreter."""
+
+class Test_update(unittest.TestCase):
+    '''test update'''
 
     @classmethod
     def setUp(self):
@@ -596,8 +592,9 @@ class TestHBNBCommand_update(unittest.TestCase):
             self.assertFalse(HBNBCommand().onecmd(testCmd))
             self.assertEqual(correct, output.getvalue().strip())
 
-class TestHBNBCommand_count(unittest.TestCase):
-    """Unittests for testing count method of HBNB comand interpreter."""
+
+class Test_count(unittest.TestCase):
+    '''test count'''
 
     @classmethod
     def setUp(self):
@@ -621,7 +618,8 @@ class TestHBNBCommand_count(unittest.TestCase):
     def test_count_invalid_class(self):
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("MyModel.count()"))
-            self.assertNotEqual("** class doesn't exist **", output.getvalue().strip())
+            self.assertNotEqual("** class doesn't exist **",
+                                output.getvalue().strip())
 
     def test_count_object(self):
         with patch("sys.stdout", new=StringIO()) as output:
