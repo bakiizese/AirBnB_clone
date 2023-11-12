@@ -48,6 +48,7 @@ class Test_basemodel(unittest.TestCase):
 
 class Test_BaseModel_save(unittest.TestCase):
     '''tests save method'''
+
     @classmethod
     def setUP(self):
         try:
@@ -76,6 +77,7 @@ class Test_BaseModel_save(unittest.TestCase):
 
 class Test_to_dict(unittest.TestCase):
     '''tests to_dict method'''
+
     def test_what_it_conatains(self):
         in1 = BaseModel()
         self.assertIn("id", in1.to_dict())
