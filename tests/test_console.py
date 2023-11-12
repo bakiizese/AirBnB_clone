@@ -11,9 +11,9 @@ from console import HBNBCommand
 from io import StringIO
 from unittest.mock import patch
 
+
 class Test_prompt(unittest.TestCase):
     '''test the cmd prompt'''
-
     @classmethod
     def setUpClass(self):
         self.typing = console.HBNBCommand()
@@ -24,8 +24,10 @@ class Test_prompt(unittest.TestCase):
             os.remove("file.json")
         except FileNotFoundError:
             pass
+
     def test_prompt(self):
         self.assertEqual("(hbnb) ", HBNBCommand.prompt)
+
 
 class TestHBNBCommand_exit(unittest.TestCase):
     '''test console'''
@@ -37,8 +39,10 @@ class TestHBNBCommand_exit(unittest.TestCase):
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertTrue(HBNBCommand().onecmd("EOF"))
 
+
 class Test_create(unittest.TestCase):
     '''test create cmd'''
+
     @classmethod
     def setUp(self):
         try:
@@ -95,8 +99,10 @@ class Test_create(unittest.TestCase):
             testKey = "Review.{}".format(output.getvalue().strip())
             self.assertIn(testKey, storage.all().keys())
 
+
 class Test_show(unittest.TestCase):
     '''test show'''
+
     @classmethod
     def setUp(self):
         try:
@@ -139,6 +145,7 @@ class Test_show(unittest.TestCase):
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("show Review"))
             self.assertEqual(correct, output.getvalue().strip())
+
 
 class Test_destroy(unittest.TestCase):
     '''test destroy'''
@@ -252,6 +259,7 @@ class Test_all(unittest.TestCase):
             self.assertFalse(HBNBCommand().onecmd("create Amenity"))
             self.assertFalse(HBNBCommand().onecmd("create Review"))
 
+
 class Test_update(unittest.TestCase):
     '''test update'''
     @classmethod
@@ -296,6 +304,7 @@ class Test_update(unittest.TestCase):
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("update Review"))
             self.assertEqual(correct, output.getvalue().strip())
+
 
 class Test_count(unittest.TestCase):
     '''test count'''
@@ -354,6 +363,7 @@ class Test_count(unittest.TestCase):
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("Review.count()"))
             self.assertEqual("1", output.getvalue().strip())
+
 
 if __name__ == "__main__":
     unittest.main()

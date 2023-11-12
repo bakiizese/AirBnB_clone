@@ -40,10 +40,11 @@ class Test_basemodel(unittest.TestCase):
     def test_created_with_kwargs(self):
         tm = datetime.today()
         tms = tm.isoformat()
-        in1 = BaseModel(id = "1111", created_at = tms, updated_at = tms)
+        in1 = BaseModel(id="1111", created_at=tms, updated_at=tms)
         self.assertEqual(in1.id, "1111")
         self.assertEqual(in1.created_at, tm)
         self.assertEqual(in1.updated_at, tm)
+
 
 class Test_BaseModel_save(unittest.TestCase):
     '''tests save method'''
@@ -72,6 +73,7 @@ class Test_BaseModel_save(unittest.TestCase):
         in1.save()
         self.assertEqual(update, in1.updated_at)
 
+
 class Test_to_dict(unittest.TestCase):
     '''tests to_dict method'''
     def test_what_it_conatains(self):
@@ -91,6 +93,7 @@ class Test_to_dict(unittest.TestCase):
         in1.num = 12
         self.assertIn("name", in1.to_dict())
         self.assertIn("num", in1.to_dict())
+
 
 if __name__ == "__main__":
     unittest.main()
