@@ -17,7 +17,7 @@ import ast
 
 class HBNBCommand(cmd.Cmd):
     '''a cmd commad interpreter that loops to accept commands'''
-    prompt = "(hbnb)"
+    prompt = "(hbnb) "
     class_dict = {"BaseModel": BaseModel, "User": User,
                   "State": State, "City": City,
                   "Amenity": Amenity, "Place": Place, "Review": Review}
@@ -27,7 +27,6 @@ class HBNBCommand(cmd.Cmd):
         self.parse(line)
 
     def parse(self, line):
-        '''to parse through line'''
         cl_name = re.search(r"(\w*)\.", line)
         cl_name = cl_name.group(1)
         func = re.search(r"\.(\w*)", line)
