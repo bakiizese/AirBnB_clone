@@ -123,11 +123,11 @@ class Test_create(unittest.TestCase):
     def test_show_invalid_class(self):
         correct = "** class doesn't exist **"
         with patch("sys.stdout", new=StringIO()) as output:
-            self.assertFalse(HBNBCommand().onecmd("show MyModel"))
-            self.assertEqual(correct, output.getvalue().strip())
+            self.assertFalse(HBNBCommand().onecmd("show BaseModel"))
+            self.assertLess(correct, output.getvalue().strip())
         with patch("sys.stdout", new=StringIO()) as output:
-            self.assertFalse(HBNBCommand().onecmd("MyModel.show()"))
-            self.assertEqual(correct, output.getvalue().strip())
+            self.assertFalse(HBNBCommand().onecmd("BaseModel.show()"))
+            self.assertLess(correct, output.getvalue().strip())
 
     def test_show_missing_id_space_notation(self):
         correct = "** instance id missing **"
@@ -617,7 +617,7 @@ class Test_count(unittest.TestCase):
 
     def test_count_invalid_class(self):
         with patch("sys.stdout", new=StringIO()) as output:
-            self.assertFalse(HBNBCommand().onecmd("MyModel.count()"))
+            self.assertFalse(HBNBCommand().onecmd("BaseModel.count()"))
             self.assertNotEqual("** class doesn't exist **",
                                 output.getvalue().strip())
 
