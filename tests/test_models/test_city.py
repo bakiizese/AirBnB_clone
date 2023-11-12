@@ -40,7 +40,7 @@ class Test_city(unittest.TestCase):
     def test_created_with_kwargs(self):
         tm = datetime.today()
         tms = tm.isoformat()
-        in1 = City(id="1111", created_at=tms, updated_at=tms)
+        in1 = City(id = "1111", created_at = tms, updated_at = tms)
         self.assertEqual(in1.id, "1111")
         self.assertEqual(in1.created_at, tm)
         self.assertEqual(in1.updated_at, tm)
