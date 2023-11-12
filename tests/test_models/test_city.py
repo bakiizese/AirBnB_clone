@@ -1,10 +1,5 @@
 #!/usr/bin/python3
-"""Defines unittests for models/city.py.
-Unittest classes:
-    TestCity_instantiation
-    TestCity_save
-    TestCity_to_dict
-"""
+'''test city'''
 import os
 import models
 import unittest
@@ -13,8 +8,8 @@ from time import sleep
 from models.city import City
 
 
-class TestCity_instantiation(unittest.TestCase):
-    """Unittests for testing instantiation of the City class."""
+class Test_instacne(unittest.TestCase):
+    '''test instance'''
 
     def test_no_args_instantiates(self):
         self.assertEqual(City, type(City()))
@@ -89,8 +84,8 @@ class TestCity_instantiation(unittest.TestCase):
             City(id=None, created_at=None, updated_at=None)
 
 
-class TestCity_save(unittest.TestCase):
-    """Unittests for testing save method of the City class."""
+class Test_save(unittest.TestCase):
+    '''test save'''
 
     @classmethod
     def setUp(self):
@@ -140,8 +135,8 @@ class TestCity_save(unittest.TestCase):
             self.assertIn(cyid, f.read())
 
 
-class TestCity_to_dict(unittest.TestCase):
-    """Unittests for testing to_dict method of the City class."""
+class Testto_dict(unittest.TestCase):
+    '''test to fict'''
 
     def test_to_dict_type(self):
         self.assertTrue(dict, type(City().to_dict()))
@@ -155,10 +150,10 @@ class TestCity_to_dict(unittest.TestCase):
 
     def test_to_dict_contains_added_attributes(self):
         cy = City()
-        cy.middle_name = "Holberton"
-        cy.my_number = 98
-        self.assertEqual("Holberton", cy.middle_name)
-        self.assertIn("my_number", cy.to_dict())
+        cy.middle_name = "bnb"
+        cy.sums = 345
+        self.assertEqual("bnb", cy.middle_name)
+        self.assertIn("sums", cy.to_dict())
 
     def test_to_dict_datetime_attributes_are_strs(self):
         cy = City()
