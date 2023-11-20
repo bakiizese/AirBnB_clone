@@ -1,4 +1,4 @@
-#!usr/bin/python3
+#!/usr/bin/python3
 
 '''A python console to manipulate objects'''
 
@@ -17,7 +17,7 @@ import ast
 
 class HBNBCommand(cmd.Cmd):
     '''a cmd commad interpreter that loops to accept commands'''
-    prompt = "(hbnb)"
+    prompt = "(hbnb) "
     class_dict = {"BaseModel": BaseModel, "User": User,
                   "State": State, "City": City,
                   "Amenity": Amenity, "Place": Place, "Review": Review}
@@ -27,7 +27,6 @@ class HBNBCommand(cmd.Cmd):
         self.parse(line)
 
     def parse(self, line):
-        '''to parse through line'''
         cl_name = re.search(r"(\w*)\.", line)
         cl_name = cl_name.group(1)
         func = re.search(r"\.(\w*)", line)
@@ -62,11 +61,11 @@ class HBNBCommand(cmd.Cmd):
                     self.do_update(cl)
 
     def do_quit(self, line):
-        '''Quit command to exit the program'''
+        '''Quit command to exit the program.'''
         return True
 
     def do_EOF(self, line):
-        '''EOF command to end the program'''
+        '''EOF command to end the program.'''
         print()
         return True
 
@@ -94,7 +93,7 @@ class HBNBCommand(cmd.Cmd):
             if cl[0] not in HBNBCommand.class_dict:
                 print("** class doesn't exist **")
             elif len(cl) < 2:
-                print("** instance id missiing **")
+                print("** instance id missing **")
             else:
                 key = "{}.{}".format(cl[0], cl[1])
                 if key not in storage.all():
@@ -106,7 +105,7 @@ class HBNBCommand(cmd.Cmd):
     def do_destroy(self, value):
         '''Destroy to delete an instance'''
         if value == "" or value is None:
-            print("** class name missinig **")
+            print("** class name missing **")
         else:
             cl = value.split(" ")
             if cl[0] not in HBNBCommand.class_dict:
