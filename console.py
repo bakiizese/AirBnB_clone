@@ -21,12 +21,14 @@ class HBNBCommand(cmd.Cmd):
     class_dict = {"BaseModel": BaseModel, "User": User,
                   "State": State, "City": City,
                   "Amenity": Amenity, "Place": Place, "Review": Review}
-
+    print('in class')
     def default(self, line):
         '''default method'''
+        print('int default')
         self.parse(line)
 
     def parse(self, line):
+        print('in parse')
         cl_name = re.search(r"(\w*)\.", line)
         cl_name = cl_name.group(1)
         func = re.search(r"\.(\w*)", line)

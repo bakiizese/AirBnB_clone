@@ -22,6 +22,7 @@ class BaseModel:
                                                            timeformat)
                 else:
                     self.__dict__[key] = kwargs[key]
+        
         else:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
